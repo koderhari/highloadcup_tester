@@ -46,7 +46,7 @@ func pifpaf(i int, benchResultsAll *benchResult, client *fasthttp.Client, enough
 			err := client.DoTimeout(req, resp, 2*time.Second)
 			if err != nil {
 				oneBenchResult.status = -1
-				//fmt.Println(`client.DoTimeout fail:`, err)
+				fmt.Println(`client.DoTimeout fail:`, err)
 			} else {
 				oneBenchResult.status = resp.StatusCode()
 				oneBenchResult.body = append(oneBenchResult.body, resp.Body()...)
@@ -106,7 +106,7 @@ func pifpafTank(ii int, benchResultsAll *benchResult, client *fasthttp.Client, q
 	err := client.DoTimeout(req, resp, 2*time.Second)
 	if err != nil {
 		oneBenchResult.status = -1
-		//fmt.Println(`client.DoTimeout fail:`, err)
+		fmt.Println(`client.DoTimeout fail:`, err)
 	} else {
 		oneBenchResult.status = resp.StatusCode()
 		oneBenchResult.body = append(oneBenchResult.body, resp.Body()...)
